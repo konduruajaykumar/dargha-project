@@ -1,0 +1,17 @@
+.table-hover>tbody>tr:hover {
+	background-color: #44ffff;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus
+	{
+	color: #da1616;
+	background-color: white;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: #ffffff;
+}
+
+.navbar-inverse {
+	background-color: #333333;
+}

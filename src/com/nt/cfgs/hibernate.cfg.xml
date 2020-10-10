@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC 
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+	<!-- 
+	//place under context tag of context.xml of server
+	<Resource name="DsJndi" 
+			  auth="Container" 
+			  type="javax.sql.DataSource"
+			  driverClassName="com.mysql.jdbc.Driver" 
+			  url="jdbc:mysql://localhost:3306/Ajay"
+			  username="root" 
+			  password="root" 
+			  maxTotal="20" 
+			  maxIdle="10"
+			  maxWaitMillis="-1" /> 
+	-->
+	
+	 <!-- Working with Server Managed JDBC Con pool -->
+	    <property name="connection.provider_class">org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl</property>
+		<property name="connection.datasource">java:/comp/env/DsJndi</property>
+	
+	 <!-- <property name="connection.datasource">java:/comp/env/DsJndi</property> -->
+
+<!-- 
+		Database Connection Properties
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/Ajay</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+
+ -->		
+ 		<!-- Hibernate Properties -->
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<property name="hbm2ddl.auto">update</property>
+		<!-- Mapping Resources -->
+
+		<mapping class="com.nt.bo.DevoteeBO" />
+		<mapping class="com.nt.bo.DevoteeSuccessBO" />
+	</session-factory>
+
+</hibernate-configuration>
